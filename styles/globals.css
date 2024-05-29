@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.btn-hover:hover {
+  animation: btn-hover 1s infinite;
+  scale: 1.2;
+}
+
+@keyframes btn-hover {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(15deg);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
+  30% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  60% {
+    transform: rotate(-15deg);
+  }
+  70% {
+    transform: rotate(15deg);
+  }
+  80% {
+    transform: rotate(-15deg);
+  }
+  90% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/* 
+.h-page {
+  height: calc(100vh - 64px);
+} */
+
+.nav {
+  background: rgb(0,13,19);
+  background: linear-gradient(90deg, rgba(0,13,19,1) 0%, rgba(0,20,37,1) 63%, rgba(0,58,101,1) 85%, rgba(0,83,149,1) 100%);
+}
+
+.nav-hover:hover {
+  background: rgb(0,1,1);
+  background: linear-gradient(90deg, rgba(0,1,1,1) 0%, rgba(0,10,19,1) 63%, rgba(1,40,69,1) 85%, rgba(2,63,111,1) 100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.text-shade {
+  background: #FFFFFF;
+  background: linear-gradient(to right, #FFFFFF 0%, #1098F3 23%, #2C61F1 73%, #CF53BA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+
+}
+
+.bg-img {
+  background-image: url('../assets/img/bgImage.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-img-2 {
+  background-image: url('../assets/img/bgImage2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.main-product-bg-img {
+  background-image: url('../assets/img/bgMainProduct2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.gradient-underline {
+  position: relative;
+}
+
+.gradient-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50%; /* Center the underline horizontally */
+  height: 2.5px;
+  width: 0%;
+  background: linear-gradient(300deg, rgba(104, 85, 211, 0.9) 0%, rgba(168, 85, 246, 0.9) 100%);
+  z-index: 1;
+  transition: width 0.3s ease; /* Add a smooth transition for opacity */
+}
+
+.gradient-underline:hover::after {
+  width: 150%;
+}
+
+
+/* styles.css */
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(5, 55, 173, 0.3) 0%, rgba(231, 56, 140, 0.6) 100%);
+  border-radius: 50%;
+  transition: width 0.6s ease-in-out, height 0.45s ease-in-out;
+  transform: translate(-50%, -50%);
+}
+
+.project-card:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+@media screen and (max-width: 768px) {
+  .project-card::before {
+    background: radial-gradient(circle, rgba(5, 55, 173, 0.7) 0%, rgba(231, 56, 140, 0.85) 100%);
+  }
+}
